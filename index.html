@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cyber Brawl - Neon Fighting Game</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-blue: #00f0ff;
+            --neon-pink: #ff007f;
+            --neon-green: #39ff14;
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body {
+            background-color: #05050a;
+            color: #ffffff;
+            font-family: var(--font-body);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* 3D Canvas */
+        #gameCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Heads Up Display (HUD) */
+        #hud {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+        }
+
+        /* Header Scoreboard & Health Bars */
+        .hud-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .fighter-hud {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player1-hud {
+            align-items: flex-start;
+        }
+
+        .player2-hud {
+            align-items: flex-end;
+        }
+
+        .fighter-name {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .player1-hud .fighter-name {
+            color: var(--neon-blue);
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+        }
+
+        .player2-hud .fighter-name {
+            color: var(--neon-pink);
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+        }
+
+        .health-bar-container {
+            width: 100%;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .health-bar {
+            height: 100%;
+            width: 100%;
+            transition: width 0.15s ease-out;
+        }
+
+        .player1-hud .health-bar {
+            background: linear-gradient(90deg, #0055ff, var(--neon-blue));
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            transform-origin: left;
+        }
+
+        .player2-hud .health-bar {
+            background: linear-gradient(90deg, var(--neon-pink), #ff0000);
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+            transform-origin: right;
+        }
+
+        .timer-container {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(10, 10, 20, 0.85);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+        }
+
+        /* Controls Tutorial Banner */
+        .controls-banner {
+            background: rgba(10, 10, 20, 0.7);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            padding: 12px 24px;
+            border-radius: 8px;
+            margin: 0 auto;
+            max-width: 600px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            pointer-events: auto;
+        }
+
+        .control-guide {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .key-cap {
+            background: #fff;
+            color: #000;
+            font-family: var(--font-display);
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 0 #888;
+        }
+
+        /* Overlay Start/Reset/Win Screens */
+        .overlay-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 10, 0.85);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.5s ease;
+        }
+
+        .overlay-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .game-title {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .game-subtitle {
+            font-size: 1.25rem;
+            color: #8892b0;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-start {
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 14px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+        }
+
+        .btn-start:hover {
+            background: var(--neon-blue);
+            color: #05050a;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Winner Announcement Text */
+        .winner-text {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .p1-win {
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .p2-win {
+            color: var(--neon-pink);
+            text-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Three.js Render Target -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Start Game Overlay -->
+    <div class="overlay-screen" id="startScreen">
+        <h1 class="game-title">CYBER BRAWL 3D</h1>
+        <p class="game-subtitle">Neon Arena Arena Battle</p>
+        <button class="btn-start" onclick="startGame()">BATTLE START</button>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div class="overlay-screen hidden" id="gameOverScreen">
+        <h2 class="winner-text" id="winnerText">PLAYER 1 WINS</h2>
+        <button class="btn-start" onclick="restartGame()">REMATCH</button>
+    </div>
+
+    <!-- HUD Overlay -->
+    <div id="hud">
+        <!-- Scoreboard Header -->
+        <div class="hud-header">
+            <!-- Player 1 Status -->
+            <div class="fighter-hud player1-hud">
+                <span class="fighter-name">CYBER BLUE (P1)</span>
+                <div class="health-bar-container">
+                    <div class="health-bar" id="p1Health"></div>
+                </div>
+            </div>
+
+            <!-- Timer -->
+            <div class="timer-container" id="timer">99</div>
+
+            <!-- Player 2 Status -->
+            <div class="fighter-hud player2-hud">
+                <span class="fighter-name">NEON PINK (P2)</span>
+                <div class="health-bar-container">
+                    <div class="health-bar" id="p2Health"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Guide Footer Banner -->
+        <div class="controls-banner">
+            <div class="control-guide">
+                <span class="key-cap">A</span><span class="key-cap">D</span> <span>P1 이동</span>
+                <span class="key-cap">W</span> <span>P1 점프</span>
+                <span class="key-cap">F</span> <span>P1 공격</span>
+            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
+            <div class="control-guide">
+                <span class="key-cap">←</span><span class="key-cap">→</span> <span>P2 이동</span>
+                <span class="key-cap">↑</span> <span>P2 점프</span>
+                <span class="key-cap">/</span> <span>P2 공격</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Module Loading script -->
+    <script type="module" src="/src/main.js"></script>
+
+    <script>
+        function startGame() {
+            document.getElementById('startScreen').classList.add('hidden');
+            if (window.initGame) {
+                window.initGame();
+            }
+        }
+
+        function restartGame() {
+            document.getElementById('gameOverScreen').classList.add('hidden');
+            if (window.resetGame) {
+                window.resetGame();
+            }
+        }
+    </script>
+</body>
+</html>

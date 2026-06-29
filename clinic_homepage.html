@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="5인의 내분비내과 전문의 협진. 갑상선 결절, 초음파 및 세침흡인검사, 당뇨병, 골다공증, 호르몬 질환 맞춤형 정밀 진료. 더맑은 내분비·갑상선 내과의원.">
+    <title>더맑은 내분비·갑상선 내과의원 | 5인 전문의 분과별 협진</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --------------------------------------------------
+         * 1. DESIGN SYSTEM & ROOT VARIABLES
+         * -------------------------------------------------- */
+        :root {
+            /* Colors */
+            --primary: #0f5c5c;        /* Deep Teal */
+            --primary-light: #e6f2f2;  /* Light Teal Tint */
+            --primary-dark: #093b3b;
+            --secondary: #6e8e75;      /* Sage Green */
+            --secondary-light: #f1f6f2;
+            --accent: #d97d4b;         /* Warm Peach/Orange for CTA */
+            --text-dark: #2c3e35;      /* Dark Slate-Green */
+            --text-light: #5f756b;
+            --bg-white: #ffffff;
+            --bg-light: #f7faf8;       /* Very soft Sage-Gray background */
+            --border-color: #e2e8e5;
+            
+            /* Typography */
+            --font-ko: 'Noto Sans KR', sans-serif;
+            --font-en: 'Montserrat', sans-serif;
+            
+            /* Shadows & Transitions */
+            --shadow-sm: 0 4px 6px -1px rgba(15, 92, 92, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(15, 92, 92, 0.08), 0 4px 6px -2px rgba(15, 92, 92, 0.04);
+            --shadow-lg: 0 20px 25px -5px rgba(15, 92, 92, 0.1), 0 10px 10px -5px rgba(15, 92, 92, 0.04);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        /* --------------------------------------------------
+         * 2. GENERAL STYLES & RESET
+         * -------------------------------------------------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-ko);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Common Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--bg-white);
+        }
+
+        .btn-accent:hover {
+            background-color: #c56837;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------------------
+         * 3. TOP INFO BAR & HEADER (NAV)
+         * -------------------------------------------------- */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .top-info-left, .top-info-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-info-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-info-item i {
+            color: var(--secondary);
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-ko);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-weight: 300;
+            font-size: 1.1rem;
+            border-left: 1px solid var(--border-color);
+            padding-left: 10px;
+            margin-left: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* --------------------------------------------------
+         * 4. HERO SECTION
+         * -------------------------------------------------- */
+        .hero {
+            background: linear-gradient(135deg, #f3f8f6 0%, #e6efeb 100%);
+            padding: 100px 0 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(15, 92, 92, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--bg-white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero-badge i {
+            color: var(--primary);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+        }
+
+        .hero-title span {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-bg-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-light);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: 1;
+            animation: morphing 15s ease-in-out infinite alternate;
+        }
+
+        .hero-doctor-img {
+            z-index: 2;
+            width: 100%;
+            max-width: 280px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--bg-white);
+            margin-right: -60px;
+            transition: var(--transition-smooth);
+        }
+
+        .hero-doctor-img:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-card {
+            background-color: var(--bg-white);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 3;
+            width: 100%;
+            max-width: 360px;
+            border-top: 5px solid var(--primary);
+        }
+
+        .hero-card-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .hero-card-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .hero-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background-color: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .hero-card-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .hero-card-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        /* --------------------------------------------------
+         * 5. ABOUT CLINIC SECTION
+         * -------------------------------------------------- */
+        .about {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-svg-box {
+            background-color: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .about-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .about-feature-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+
+        .about-feature-item h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .about-feature-item p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* --------------------------------------------------
+         * 6. DOCTORS (MEDICAL STAFF) SECTION
+         * -------------------------------------------------- */
+        .doctors {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .doctor-card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .doctor-avatar-box {
+            background: linear-gradient(to bottom, var(--primary-light), var(--bg-white));
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 220px;
+        }
+
+        .doctor-avatar-svg {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            padding: 12px;
+        }
+
+        .doctor-info {
+            padding: 24px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .doctor-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .doctor-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .doctor-title {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .doctor-specialty {
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+            background-color: var(--bg-light);
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+        }
+
+        .btn-view-profile {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            width: 100%;
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .doctor-card:hover .btn-view-profile {
+            color: var(--accent);
+        }
+
+        /* --------------------------------------------------
+         * 7. SPECIALIZED CLINICS (진료 분야)
+         * -------------------------------------------------- */
+        .specialty {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+        }
+
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .specialty-card {
+            background-color: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 40px 32px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .specialty-card:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .specialty-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--bg-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            transition: var(--transition-smooth);
+        }
+
+        .specialty-card:hover .specialty-icon {
+            background-color: var(--accent);
+            transform: rotateY(180deg);
+        }
+
+        .specialty-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .specialty-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .specialty-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .specialty-item i {
+            color: var(--primary);
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* --------------------------------------------------
+         * 8. APPOINTMENT & CONTACT FORM
+         * -------------------------------------------------- */
+        .appointment {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--bg-white);
+            position: relative;
+        }
+
+        .appointment::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .appointment-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .appointment-text h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .appointment-text p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .appointment-contact-card {
+            background-color: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary-light);
+        }
+
+        .contact-info h4 {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 0;
+        }
+
+        /* Form styling */
+        .appointment-form-box {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 40px;
+            color: var(--text-dark);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .appointment-form-box h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group-full {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            font-family: var(--font-ko);
+            background-color: var(--bg-light);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--bg-white);
+            box-shadow: 0 0 0 3px rgba(15, 92, 92, 0.15);
+        }
+
+        /* --------------------------------------------------
+         * 9. INFO & DIRECTIONS (진료시간 및 오시는길)
+         * -------------------------------------------------- */
+        .info-directions {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+        }
+
+        .hours-card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 40px 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hours-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 12px;
+        }
+
+        .hours-list-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .hours-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .hours-day {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .hours-time {
+            color: var(--text-light);
+        }
+
+        .hours-time.highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .map-card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .map-mock {
+            background-color: #e8ece9;
+            height: 280px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Stylized SVG Map Placeholder */
+        .map-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+        }
+
+        .map-marker {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        .map-marker i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-shadow: var(--shadow-sm);
+        }
+
+        .map-marker-label {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 4px;
+            white-space: nowrap;
+            box-shadow: var(--shadow-md);
+        }
+
+        .map-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .map-info-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .map-info-item h4 i {
+            color: var(--secondary);
+        }
+
+        .map-info-item p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --------------------------------------------------
+         * 10. FAQ SECTION
+         * -------------------------------------------------- */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background-color: var(--bg-light);
+            transition: var(--transition-smooth);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary-dark);
+            background-color: var(--bg-white);
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background-color: var(--primary-light);
+        }
+
+        .faq-icon-box {
+            font-size: 1.1rem;
+            color: var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        .faq-item.active .faq-icon-box {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--bg-white);
+        }
+
+        .faq-answer-content {
+            padding: 24px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* --------------------------------------------------
+         * 11. DOCTOR MODAL (약력 팝업)
+         * -------------------------------------------------- */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 92, 92, 0.4);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-md);
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+            border-top: 8px solid var(--primary);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            background-color: var(--bg-light);
+            color: var(--accent);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-header-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 24px;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+
+        .modal-avatar-box {
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            padding: 8px;
+        }
+
+        .modal-doctor-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .modal-doctor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .modal-doctor-title {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .modal-doctor-specialty {
+            font-size: 1rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .modal-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-section-title i {
+            color: var(--accent);
+        }
+
+        .modal-history-list {
+            margin-bottom: 24px;
+        }
+
+        .modal-history-list li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            padding-left: 12px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .modal-history-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 5px;
+            height: 5px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* --------------------------------------------------
+         * 12. TOAST SYSTEM (알림창)
+         * -------------------------------------------------- */
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1100;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            pointer-events: none;
+        }
+
+        .toast {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: 16px 24px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            pointer-events: auto;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 5px solid var(--accent);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        /* --------------------------------------------------
+         * 13. FOOTER
+         * -------------------------------------------------- */
+        footer {
+            background-color: #172a21;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 30px 0;
+            font-size: 0.9rem;
+            border-top: 5px solid var(--primary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            color: var(--bg-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo i {
+            color: var(--secondary-light);
+        }
+
+        .footer-logo span {
+            font-size: 1rem;
+            opacity: 0.6;
+            font-weight: 300;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 10px;
+            margin-left: 4px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-links h4, .footer-info h4 {
+            color: var(--bg-white);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-links-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .footer-links-list a:hover {
+            color: var(--bg-white);
+            padding-left: 5px;
+        }
+
+        .footer-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-info-list i {
+            color: var(--secondary-light);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* --------------------------------------------------
+         * 14. RESPONSIVE DESIGN (MEDIA QUERIES)
+         * -------------------------------------------------- */
+        @media (max-width: 1024px) {
+            .specialty-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-illustration {
+                order: -1;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .hero-doctor-img {
+                margin-right: 0;
+                max-width: 100%;
+                height: 300px;
+            }
+            .hero-card {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--bg-white);
+                flex-direction: column;
+                padding: 40px;
+                gap: 24px;
+                transition: var(--transition-smooth);
+                box-shadow: var(--shadow-md);
+                z-index: 99;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .specialty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .appointment-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group-full {
+                grid-column: span 1;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-info {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --------------------------------------------------
+     * TOP INFO BAR
+     * -------------------------------------------------- -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-info-left">
+                <span class="top-info-item"><i class="fa-solid fa-phone"></i> 대표번호: 02-1234-5678</span>
+                <span class="top-info-item"><i class="fa-solid fa-location-dot"></i> 서울시 강남구 테헤란로 123</span>
+            </div>
+            <div class="top-info-right">
+                <span class="top-info-item"><i class="fa-solid fa-clock"></i> 평일 09:00 - 18:30 | 토요일 09:00 - 13:00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------
+     * HEADER & NAVIGATION
+     * -------------------------------------------------- -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-heart-pulse"></i> 더맑은 <span>내분비·갑상선 내과</span>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">의원소개</a></li>
+                <li><a href="#doctors" class="nav-link">의료진 소개</a></li>
+                <li><a href="#specialty" class="nav-link">전문 진료</a></li>
+                <li><a href="#info" class="nav-link">진료 및 오시는 길</a></li>
+                <li><a href="#faq" class="nav-link">자주 묻는 질문</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#appointment" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> 빠른 예약</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기/닫기">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- --------------------------------------------------
+         * HERO SECTION
+         * -------------------------------------------------- -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>내분비내과 분과 전문의 5인 협진 시스템</span>
+                    </div>
+                    <h1 class="hero-title">
+                        갑상선과 호르몬의 균형,<br>
+                        <span>더 정밀하고 신뢰할 수 있게.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        대학병원 교수 출신 의료진 5인이 첨단 의료 장비와 정밀 분석 시스템으로<br>
+                        갑상선 결절, 당뇨병, 골다공증을 신속하고 정확하게 치료합니다.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#appointment" class="btn btn-primary btn-lg">간편 예약 신청하기</a>
+                        <a href="#specialty" class="btn btn-outline btn-lg">전문 클리닉 둘러보기</a>
+                    </div>
+                </div>
+
+                <div class="hero-illustration">
+                    <div class="hero-bg-shape"></div>
+                    <img src="./김헌성.jpg" alt="김헌성 원장" class="hero-doctor-img">
+                    <div class="hero-card">
+                        <div class="hero-card-item">
+                            <div class="hero-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="hero-card-info">
+                                <h4>당일 검사 & 판독 시스템</h4>
+                                <p>갑상선 초음파 및 혈액검사 당일 결과 상담</p>
+                            </div>
+                        </div>
+                        <div class="hero-card-item">
+                            <div class="hero-card-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                            <div class="hero-card-info">
+                                <h4>5인 분과 전문의 협진</h4>
+                                <p>내분비내과 세부 진료별 심층 맞춤 케어</p>
+                            </div>
+                        </div>
+                        <div class="hero-card-item">
+                            <div class="hero-card-icon"><i class="fa-solid fa-dna"></i></div>
+                            <div class="hero-card-info">
+                                <h4>최첨단 초음파 및 조직검사</h4>
+                                <p>비수술적 갑상선 세침흡인 세포 검사 실시</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+         * ABOUT CLINIC SECTION
+         * -------------------------------------------------- -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">ABOUT US</span>
+                    <h2 class="section-title">왜 더맑은 내분비·갑상선 내과인가요?</h2>
+                    <p class="section-desc">호르몬과 대사는 세밀한 접근이 필요합니다. 1:1 맞춤 정밀 진료로 만성질환 극복의 동반자가 되어 드립니다.</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-svg-box">
+                        <!-- Premium Embedded SVG Graphic for Medical Theme -->
+                        <svg viewBox="0 0 400 300" width="100%" height="240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="300" rx="20" fill="#e6f2f2" />
+                            <circle cx="200" cy="150" r="80" fill="#ffffff" filter="drop-shadow(0px 8px 16px rgba(15, 92, 92, 0.08))" />
+                            <!-- Thyroid Outline representation -->
+                            <path d="M160 140C160 120 180 120 190 135C193 140 197 140 200 140C203 140 207 140 210 135C220 120 240 120 240 140C240 170 215 190 200 190C185 190 160 170 160 140Z" fill="#0f5c5c" opacity="0.8" />
+                            <!-- Heartbeat Pulse Line -->
+                            <path d="M80 150H130L140 120L150 180L160 140L170 150H320" stroke="#d97d4b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- Decor circles -->
+                            <circle cx="200" cy="150" r="10" fill="#ffffff" />
+                            <circle cx="200" cy="150" r="6" fill="#d97d4b" />
+                        </svg>
+                    </div>
+
+                    <div class="about-content">
+                        <h3>단순한 수치 치료가 아닌,<br>삶의 밸런스를 되찾는 여정입니다.</h3>
+                        <p class="about-text">
+                            내분비계 질환은 장기적인 호흡과 체계적인 조절이 필요합니다. 당뇨병, 갑상선 질환은 한번 발생하면 평생 관리가 필요하다고 낙담하시기 쉽지만, 믿을 수 있는 의료진과 함께 정확한 정보를 토대로 관리하면 건강한 일상을 완전히 유지할 수 있습니다.
+                        </p>
+                        <div class="about-features">
+                            <div class="about-feature-item">
+                                <i class="fa-regular fa-square-check"></i>
+                                <div>
+                                    <h5>정밀 진단 장비 보유</h5>
+                                    <p>대학병원급 고밀도 초음파 판독 및 현장 혈액 정밀 분석기</p>
+                                </div>
+                            </div>
+                            <div class="about-feature-item">
+                                <i class="fa-regular fa-square-check"></i>
+                                <div>
+                                    <h5>맞춤 건강 교육</h5>
+                                    <p>임상영양사의 1:1 맞춤 당뇨 식단 가이드 및 인슐린 투여 교육</p>
+                                </div>
+                            </div>
+                            <div class="about-feature-item">
+                                <i class="fa-regular fa-square-check"></i>
+                                <div>
+                                    <h5>체계적인 안심 추적</h5>
+                                    <p>주기적인 알림 및 연간 갑상선 결절 추적 모니터링 관리</p>
+                                </div>
+                            </div>
+                            <div class="about-feature-item">
+                                <i class="fa-regular fa-square-check"></i>
+                                <div>
+                                    <h5>환자 중심 당일 예약</h5>
+                                    <p>바쁜 직장인을 위한 야간 진료 및 당일 신속 검진 패키지</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+         * DOCTORS SECTION (의료진 소개)
+         * -------------------------------------------------- -->
+        <section class="doctors" id="doctors">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">MEDICAL STAFF</span>
+                    <h2 class="section-title">최고의 전문성과 따뜻함을 지닌 의료진 5인</h2>
+                    <p class="section-desc">풍부한 대학병원 임상 경험을 가진 내분비내과 분과별 전문의들이 가족을 치료하는 마음으로 정성을 다합니다.</p>
+                </div>
+
+                <div class="doctors-grid">
+                    <!-- Doctor 1 -->
+                    <div class="doctor-card" onclick="openDoctorModal(0)">
+                        <div class="doctor-avatar-box">
+                            <!-- SVG Avatar Doctor 1 (Male Accent Blue) -->
+                            <svg class="doctor-avatar-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="48" fill="#e6f2f2"/>
+                                <circle cx="50" cy="40" r="18" fill="#0f5c5c"/>
+                                <path d="M20 80 C 20 60, 80 60, 80 80 Z" fill="#6e8e75"/>
+                                <rect x="42" y="38" width="16" height="3" rx="1.5" fill="#ffffff" />
+                                <path d="M46 58 L46 68 M54 58 L54 68" stroke="#0f5c5c" stroke-width="2"/>
+                                <circle cx="50" cy="68" r="4" fill="#d97d4b"/>
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <div>
+                                <span class="doctor-tag">대표원장</span>
+                                <h3 class="doctor-name">김도윤 원장</h3>
+                                <p class="doctor-title">의학박사 / 내분비내과 전문의</p>
+                            </div>
+                            <p class="doctor-specialty">갑상선 결절 & 미세조직검사</p>
+                            <button class="btn-view-profile">상세 약력 보기 <i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Doctor 2 -->
+                    <div class="doctor-card" onclick="openDoctorModal(1)">
+                        <div class="doctor-avatar-box">
+                            <!-- SVG Avatar Doctor 2 (Female Accent Teal) -->
+                            <svg class="doctor-avatar-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="48" fill="#f1f6f2"/>
+                                <circle cx="50" cy="38" r="16" fill="#6e8e75"/>
+                                <path d="M22 80 C 22 62, 78 62, 78 80 Z" fill="#0f5c5c"/>
+                                <!-- Stethoscope representation -->
+                                <path d="M35 50 C 35 70, 65 70, 65 50" fill="none" stroke="#d97d4b" stroke-width="2"/>
+                                <circle cx="50" cy="40" r="10" fill="#ffffff" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <div>
+                                <span class="doctor-tag">진료과장</span>
+                                <h3 class="doctor-name">이서연 원장</h3>
+                                <p class="doctor-title">내분비내과 세부전문의</p>
+                            </div>
+                            <p class="doctor-specialty">당뇨병 & 연속혈당측정(CGM)</p>
+                            <button class="btn-view-profile">상세 약력 보기 <i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Doctor 3 -->
+                    <div class="doctor-card" onclick="openDoctorModal(2)">
+                        <div class="doctor-avatar-box">
+                            <!-- SVG Avatar Doctor 3 (Male Accent Sage) -->
+                            <svg class="doctor-avatar-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="48" fill="#e6f2f2"/>
+                                <circle cx="50" cy="40" r="18" fill="#2c3e35"/>
+                                <path d="M20 80 C 20 60, 80 60, 80 80 Z" fill="#d97d4b"/>
+                                <path d="M40 58 L50 68 L60 58" fill="none" stroke="#ffffff" stroke-width="3"/>
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <div>
+                                <span class="doctor-tag">진료과장</span>
+                                <h3 class="doctor-name">박준우 원장</h3>
+                                <p class="doctor-title">내분비내과 전문의</p>
+                            </div>
+                            <p class="doctor-specialty">골다공증 & 호르몬 밸런스</p>
+                            <button class="btn-view-profile">상세 약력 보기 <i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Doctor 4 -->
+                    <div class="doctor-card" onclick="openDoctorModal(3)">
+                        <div class="doctor-avatar-box">
+                            <!-- SVG Avatar Doctor 4 (Female Accent Violet) -->
+                            <svg class="doctor-avatar-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="48" fill="#f7faf8"/>
+                                <circle cx="50" cy="38" r="16" fill="#0f5c5c"/>
+                                <path d="M22 80 C 22 62, 78 62, 78 80 Z" fill="#6e8e75"/>
+                                <circle cx="50" cy="38" r="8" fill="#d97d4b" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <div>
+                                <span class="doctor-tag">진료과장</span>
+                                <h3 class="doctor-name">최지아 원장</h3>
+                                <p class="doctor-title">내분비내과 전문의</p>
+                            </div>
+                            <p class="doctor-specialty">부신 & 뇌하수체 특화 클리닉</p>
+                            <button class="btn-view-profile">상세 약력 보기 <i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Doctor 5 -->
+                    <div class="doctor-card" onclick="openDoctorModal(4)">
+                        <div class="doctor-avatar-box">
+                            <!-- SVG Avatar Doctor 5 (Male Accent Teal) -->
+                            <svg class="doctor-avatar-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="48" fill="#e6f2f2"/>
+                                <circle cx="50" cy="40" r="18" fill="#6e8e75"/>
+                                <path d="M20 80 C 20 60, 80 60, 80 80 Z" fill="#0f5c5c"/>
+                                <circle cx="50" cy="65" r="5" fill="#ffffff" />
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <div>
+                                <span class="doctor-tag">진료과장</span>
+                                <h3 class="doctor-name">정민재 원장</h3>
+                                <p class="doctor-title">내분비내과 전문의</p>
+                            </div>
+                            <p class="doctor-specialty">대사증후군 & 만성 성인병 관리</p>
+                            <button class="btn-view-profile">상세 약력 보기 <i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+         * SPECIALIZED CLINICS (전문 진료 분야)
+         * -------------------------------------------------- -->
+        <section class="specialty" id="specialty">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">CLINICS</span>
+                    <h2 class="section-title">더맑은 맞춤형 특화 클리닉</h2>
+                    <p class="section-desc">질환별 집중 치료를 통해 근본적인 호르몬과 대사 밸런스를 개선합니다.</p>
+                </div>
+
+                <div class="specialty-grid">
+                    <!-- Clinic 1 -->
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-dna"></i></div>
+                        <h3 class="specialty-title">갑상선 정밀 클리닉</h3>
+                        <div class="specialty-list">
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>갑상선 결절 미세 고밀도 초음파 판독</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>당일 미세침 흡인세포검사(FNAC) 및 판독</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>갑상선 기능 항진증 / 저하증 안심 케어</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinic 2 -->
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-droplet"></i></div>
+                        <h3 class="specialty-title">당뇨병·대사 클리닉</h3>
+                        <div class="specialty-list">
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>실시간 연속혈당측정(CGMS) 밀착 분석</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>임신성 당뇨병 및 젊은 당뇨병 맞춤 인슐린 교육</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>비만 및 대사증후군 약물/영양 통합 가이드</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinic 3 -->
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-bone"></i></div>
+                        <h3 class="specialty-title">골밀도·호르몬 클리닉</h3>
+                        <div class="specialty-list">
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>이중 에너지 골밀도 검사(DEXA) 최신 분석</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>갱년기 호르몬 불균형 처방 및 부신 질환 관리</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fa-solid fa-circle-chevron-right"></i>
+                                <span>이차성 골다공증 예방 및 골다공증 신약 치료</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+         * APPOINTMENT FORM SECTION
+         * -------------------------------------------------- -->
+        <section class="appointment" id="appointment">
+            <div class="container">
+                <div class="appointment-grid">
+                    <div class="appointment-text">
+                        <h2>정밀하고 편안한 진료를 위해<br><span style="color: var(--accent); font-weight: 900;">예약 신청</span>을 도와드립니다.</h2>
+                        <p>
+                            예약 양식을 작성하여 주시면, 담당자가 신속히 확인하여 가능한 일정을 <strong style="color: var(--bg-white); border-bottom: 2px solid var(--accent); padding-bottom: 2px;">유선 또는 알림톡</strong>으로 확인해 드립니다. <br><br>
+                            <span style="background-color: rgba(217, 125, 75, 0.2); border-left: 4px solid var(--accent); padding: 8px 12px; display: inline-block; border-radius: 4px; color: #fff; margin-top: 10px;">
+                                <i class="fa-solid fa-circle-exclamation" style="color: var(--accent); margin-right: 6px;"></i> 
+                                <strong>급한 당일 검사</strong>는 <strong>전화(02-1234-5678)</strong> 주시면 가장 빠르게 안내를 도와드립니다.
+                            </span>
+                        </p>
+                        <div class="appointment-contact-card">
+                            <div class="contact-row">
+                                <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                <div class="contact-info">
+                                    <h4>진료 문의 및 빠른 상담</h4>
+                                    <p>02-1234-5678</p>
+                                </div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-icon"><i class="fa-solid fa-comment-medical"></i></div>
+                                <div class="contact-info">
+                                    <h4>카카오톡 채널 예약</h4>
+                                    <p>@더맑은내분비내과</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="appointment-form-box">
+                        <h3>온라인 진료 예약 신청</h3>
+                        <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="bookingName">환자명</label>
+                                    <input type="text" id="bookingName" class="form-input" placeholder="이름을 입력하세요" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="bookingPhone">연락처</label>
+                                    <input type="tel" id="bookingPhone" class="form-input" placeholder="010-1234-5678" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="bookingDoctor">희망 의료진</label>
+                                    <select id="bookingDoctor" class="form-input" required>
+                                        <option value="" disabled selected>의료진을 선택해 주세요</option>
+                                        <option value="김도윤 원장">김도윤 원장 (갑상선 결절 전문)</option>
+                                        <option value="이서연 원장">이서연 원장 (당뇨병 전문)</option>
+                                        <option value="박준우 원장">박준우 원장 (골다공증 전문)</option>
+                                        <option value="최지아 원장">최지아 원장 (부신/뇌하수체)</option>
+                                        <option value="정민재 원장">정민재 원장 (대사증후군/성인병)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="bookingDate">희망 진료일</label>
+                                    <input type="date" id="bookingDate" class="form-input" required>
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label class="form-label" for="bookingNote">주요 증상 및 문의사항</label>
+                                    <textarea id="bookingNote" class="form-input" rows="3" placeholder="불편하신 증상(예: 목에 만져지는 멍울, 급격한 혈당 상승 등)을 간단히 적어주세요."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-accent" style="width: 100%;"><i class="fa-regular fa-paper-plane"></i> 예약 신청 완료하기</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+         * INFO & DIRECTIONS (진료시간 및 위치)
+         * -------------------------------------------------- -->
+        <section class="info-directions" id="info">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">DIRECTIONS</span>
+                    <h2 class="section-title">진료 시간 및 오시는 길</h2>
+                    <p class="section-desc">강남역 5번 출구 도보 2분 거리에 위치하여 내원이 편리합니다.</p>
+                </div>
+
+                <div class="info-grid">
+                    <!-- Hours -->
+                    <div class="hours-card">
+                        <h3>진료 시간 안내</h3>
+                        <div class="hours-list">
+                            <div class="hours-list-item">
+                                <span class="hours-day">평 일</span>
+                                <span class="hours-time">09:00 - 18:30</span>
+                            </div>
+                            <div class="hours-list-item">
+                                <span class="hours-day">토 요 일</span>
+                                <span class="hours-time">09:00 - 13:00 (점심시간 없음)</span>
+                            </div>
+                            <div class="hours-list-item">
+                                <span class="hours-day">점심 시간</span>
+                                <span class="hours-time">13:00 - 14:00</span>
+                            </div>
+                            <div class="hours-list-item">
+                                <span class="hours-day">일요일 · 공휴일</span>
+                                <span class="hours-time highlight">휴진</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-light);">
+                            * 접수는 진료 마감 30분 전까지 가능합니다.<br>
+                            * 수요일 오후는 원내 세미나 및 당일 초음파 정밀 분석 세션으로 단축 진료를 시행할 수 있으니 미리 예약 확인 바랍니다.
+                        </p>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-card">
+                        <div class="map-mock">
+                            <!-- Styled SVG Map Background representing roads and grid -->
+                            <svg class="map-svg" viewBox="0 0 500 300">
+                                <rect width="500" height="300" fill="#e5ebd3" />
+                                <path d="M 0,100 L 500,100 M 0,200 L 500,200 M 150,0 L 150,300 M 350,0 L 350,300" stroke="#ffffff" stroke-width="12" />
+                                <path d="M 0,150 L 500,120" stroke="#fdfdfd" stroke-width="8" />
+                                <circle cx="150" cy="100" r="16" fill="#a4c6a6" opacity="0.6" />
+                                <text x="100" y="80" font-family="sans-serif" font-size="12" fill="#5f756b" font-weight="bold">강남역 사거리</text>
+                                <text x="260" y="170" font-family="sans-serif" font-size="11" fill="#7a9084">테헤란로 메디컬타워</text>
+                            </svg>
+                            <div class="map-marker">
+                                <i class="fa-solid fa-location-pin"></i>
+                                <span class="map-marker-label">더맑은 내과 (4층)</span>
+                            </div>
+                        </div>
+                        <div class="map-info">
+                            <div class="map-info-item">
+                                <h4><i class="fa-solid fa-subway"></i> 지하철 이용 시</h4>
+                                <p>지하철 2호선 / 신분당선 강남역 5번 출구 도보 150m (약 2분 소요)</p>
+                            </div>
+                            <div class="map-info-item">
+                                <h4><i class="fa-solid fa-bus"></i> 버스 이용 시</h4>
+                                <p>강남역 나라빌딩앞 정류장 하차: 140, 400, 421, 470번</p>
+                            </div>
+                            <div class="map-info-item">
+                                <h4><i class="fa-solid fa-car"></i> 자가용 이용 시</h4>
+                                <p>내원 환자 지하 주차장 2시간 무료 주차 가능 (SUV 주차 가능 리프트 구비)</p>
+                            </div>
+                            <div class="map-info-item">
+                                <h4><i class="fa-solid fa-circle-info"></i> 원내 위치</h4>
+                                <p>테헤란로 메디컬 빌딩 4층 전체 사용 (엘리베이터 하차 후 우측 입구)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------------------
+         * FAQ SECTION (자주 묻는 질문)
+         * -------------------------------------------------- -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">FAQ</span>
+                    <h2 class="section-title">자주 하시는 질문</h2>
+                    <p class="section-desc">내분비 및 갑상선 질환과 관련하여 환자분들이 가장 많이 질문하시는 내용입니다.</p>
+                </div>
+
+                <div class="faq-list">
+                    <!-- Q1 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Q1. 갑상선 초음파에서 결절(혹)이 발견되었습니다. 무조건 조직검사를 해야 하나요?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                아닙니다. 발견된 모든 결절에 조직검사를 시행하지는 않습니다. 초음파상 결절의 크기, 내부 모양, 경계면의 흐름, 석회화 동반 여부 등의 모양새(위험도)를 정밀 분석한 후, 대한갑상선학회 가이드라인 기준에 부합할 때만 선별적으로 미세침흡인세포검사(FNAC)를 권장합니다. 저희 의원에서는 숙련된 전문의가 꼭 필요한 경우에만 통증을 최소화하여 정밀히 검사합니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Q2. 건강검진에서 당뇨 전단계 혹은 당뇨 판정을 받았습니다. 첫 내원 시 공복이어야 하나요?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                정확한 공복혈당과 대사 기능 파악을 위해 검진 당일에는 최소 8시간 이상의 금식(물 섭취 포함 금지) 후 오전 중에 내원하시는 것을 추천합니다. 하지만 이미 당뇨 약물을 복용 중이시거나 급격한 고혈당 증상이 의심되는 경우에는 금식 여부와 상관없이 내원하셔서 당화혈색소(HbA1c) 검사 및 즉각적인 상태 확인을 받으시는 것이 안전합니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Q3. 골다공증 주사나 약 치료는 기간을 얼마나 잡아야 하나요?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                골다공증은 단기 치료 질환이 아니며 뼈의 손실을 방지하고 골밀도를 개선하기 위해 대개 최소 1년에서 수년간 지속해야 합니다. 환자분의 골밀도 수치(T-score)와 골절 위험성, 전신 건강에 따라 3개월~6개월 단위 주사제 또는 1개월 단위 경구용 치료제를 정하게 되며, 매년 정기적인 골밀도 추적 검사를 통해 치료 방향을 변경하거나 휴약기를 가질 수 있습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --------------------------------------------------
+     * DOCTOR DETAILS MODAL
+     * -------------------------------------------------- -->
+    <div class="modal" id="doctorModal" onclick="closeDoctorModalOutside(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDoctorModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <div class="modal-header-grid">
+                    <div class="modal-avatar-box" id="modalAvatar">
+                        <!-- Will be dynamically populated -->
+                    </div>
+                    <div>
+                        <span class="modal-doctor-tag" id="modalTag">전문의</span>
+                        <div class="modal-doctor-name">
+                            <span id="modalName">의사이름</span>
+                            <span class="modal-doctor-title" id="modalTitle">직함</span>
+                        </div>
+                        <p class="modal-doctor-specialty" id="modalSpecialty">전문분야</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="modal-section-title"><i class="fa-solid fa-graduation-cap"></i> 주요 약력 및 학력</h4>
+                    <ul class="modal-history-list" id="modalEducation">
+                        <!-- Will be dynamically populated -->
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="modal-section-title"><i class="fa-solid fa-clipboard-check"></i> 전문 진료 분야 안내</h4>
+                    <ul class="modal-history-list" id="modalExperience">
+                        <!-- Will be dynamically populated -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------
+     * TOAST SYSTEM
+     * -------------------------------------------------- -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- --------------------------------------------------
+     * FOOTER
+     * -------------------------------------------------- -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-heart-pulse"></i> 더맑은 <span>내분비·갑상선 내과</span>
+                </div>
+                <p>
+                    더맑은 내과 의원은 환자 개개인의 건강 리듬을 되찾아 주기 위해 최선을 다하는 5인 전문의 진료 센터입니다. 친절하고 투명한 상담으로 언제나 든든한 건강 주치의가 되어 드립니다.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>바로가기</h4>
+                <div class="footer-links-list">
+                    <a href="#about">의원소개</a>
+                    <a href="#doctors">의료진 소개</a>
+                    <a href="#specialty">전문 진료</a>
+                    <a href="#info">오시는 길</a>
+                    <a href="#faq">자주 묻는 질문</a>
+                    <a href="#appointment">진료 예약</a>
+                </div>
+            </div>
+            <div class="footer-info">
+                <h4>병원 안내 정보</h4>
+                <ul class="footer-info-list">
+                    <li><i class="fa-solid fa-phone"></i> 대표전화 : 02-1234-5678</li>
+                    <li><i class="fa-solid fa-envelope"></i> 이메일 : info@thepureclinic.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> 서울시 강남구 테헤란로 123 메디컬타워 4층</li>
+                    <li><i class="fa-solid fa-building"></i> 사업자번호 : 123-45-67890 | 대표자 : 김도윤</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 더맑은 내분비·갑상선 내과의원. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; opacity: 0.6;">본 홈페이지는 예약 대기 접수를 위한 온라인 포털입니다.</p>
+        </div>
+    </footer>
+
+    <!-- --------------------------------------------------
+     * JAVASCRIPT LOGIC
+     * -------------------------------------------------- -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        // Close menu when clicking link (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // 2. Doctor Data & Modal Handler
+        const doctorsData = [
+            {
+                name: '김도윤 원장',
+                title: '대표원장 / 의학박사',
+                tag: '대표원장',
+                specialty: '갑상선 결절 & 미세침 흡인 세포 검사(FNAC)',
+                avatarSvg: `<svg class="doctor-avatar-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#e6f2f2"/><circle cx="50" cy="40" r="18" fill="#0f5c5c"/><path d="M20 80 C 20 60, 80 60, 80 80 Z" fill="#6e8e75"/><rect x="42" y="38" width="16" height="3" rx="1.5" fill="#ffffff" /><path d="M46 58 L46 68 M54 58 L54 68" stroke="#0f5c5c" stroke-width="2"/><circle cx="50" cy="68" r="4" fill="#d97d4b"/></svg>`,
+                education: [
+                    '서울대학교 의과대학 의학과 졸업',
+                    '서울대학교 병원 내분비내과 전공의 및 임상강사',
+                    '전) 서울대학교병원 내분비내과 조교수',
+                    '대한내과학회 정회원',
+                    '대한갑상선학회 정회원 및 평생회원'
+                ],
+                experience: [
+                    '갑상선 결절 및 낭종의 미세초음파 판독 진단',
+                    '초음파 유도하 세침흡인 세포검사(FNAC) 5,000례 이상 집도',
+                    '갑상선암 조기 스기 및 수술 전/후 호르몬 대사 케어',
+                    '무증상 갑상선 질환의 추적 관찰 프로그램 수립'
+                ]
+            },
+            {
+                name: '이서연 원장',
+                title: '진료과장 / 세부전문의',
+                tag: '진료과장',
+                specialty: '당뇨병 & 연속혈당측정(CGM) & 비만 치료',
+                avatarSvg: `<svg class="doctor-avatar-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#f1f6f2"/><circle cx="50" cy="38" r="16" fill="#6e8e75"/><path d="M22 80 C 22 62, 78 62, 78 80 Z" fill="#0f5c5c"/><path d="M35 50 C 35 70, 65 70, 65 50" fill="none" stroke="#d97d4b" stroke-width="2"/><circle cx="50" cy="40" r="10" fill="#ffffff" opacity="0.3"/></svg>`,
+                education: [
+                    '연세대학교 의과대학 졸업',
+                    '신촌세브란스병원 내분비내과 전임의',
+                    '대한당뇨병학회 교육위원 및 정회원',
+                    '한국임상영양의학회 정회원'
+                ],
+                experience: [
+                    '연속혈당측정기(CGMS) 기반 1:1 맞춤형 정밀 혈당 매니지먼트',
+                    '인슐린 펌프 및 고난도 혈당 조절 교육 관리',
+                    '임신성 당뇨 환자를 위한 특화 안전 가이드라인 수립',
+                    '비만형 당뇨 환자를 위한 대사 증후군 통합 클리닉 운영'
+                ]
+            },
+            {
+                name: '박준우 원장',
+                title: '진료과장 / 의학석사',
+                tag: '진료과장',
+                specialty: '골다공증 & 부갑상선 질환 & 근골격 호르몬',
+                avatarSvg: `<svg class="doctor-avatar-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#e6f2f2"/><circle cx="50" cy="40" r="18" fill="#2c3e35"/><path d="M20 80 C 20 60, 80 60, 80 80 Z" fill="#d97d4b"/><path d="M40 58 L50 68 L60 58" fill="none" stroke="#ffffff" stroke-width="3"/></svg>`,
+                education: [
+                    '고려대학교 의과대학 및 동대학원 졸업',
+                    '고려대학교 안암병원 내분비내과 전문의 수련',
+                    '대한골다공증학회 정회원',
+                    '대한골대사학회 인정의'
+                ],
+                experience: [
+                    '골다공증 및 골연화증 환자를 위한 골밀도 집중 정밀 분석',
+                    '부갑상선 기능 항진증 및 체내 전해질/칼슘 불균형 치료',
+                    '폐경기 여성 골소실 예방을 위한 여성 호르몬 치료 프로그램',
+                    '노인성 및 2차성 골절 예방 안전 관리 요법'
+                ]
+            },
+            {
+                name: '최지아 원장',
+                title: '진료과장 / 전문의',
+                tag: '진료과장',
+                specialty: '부신 질환 & 뇌하수체 호르몬 & 희귀 내분비 호르몬',
+                avatarSvg: `<svg class="doctor-avatar-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#f7faf8"/><circle cx="50" cy="38" r="16" fill="#0f5c5c"/><path d="M22 80 C 22 62, 78 62, 78 80 Z" fill="#6e8e75"/><circle cx="50" cy="38" r="8" fill="#d97d4b" opacity="0.3"/></svg>`,
+                education: [
+                    '가톨릭대학교 의과대학 졸업',
+                    '서울성모병원 내분비내과 전문의',
+                    '대한내분비학회 정회원',
+                    '미국내분비학회(Endocrine Society) 정회원'
+                ],
+                experience: [
+                    '뇌하수체 선종 및 성장/성호르몬 조절 장애 정밀 검진',
+                    '쿠싱 증후군, 알도스테론증 등 고난도 부신 질환 특화 클리닉',
+                    '원인 불명의 만성 피로 및 호르몬 불균형 통합 분석 치료',
+                    '난치성/희귀 내분비 질환 조기 판독 및 다각도 케어'
+                ]
+            },
+            {
+                name: '정민재 원장',
+                title: '진료과장 / 전문의',
+                tag: '진료과장',
+                specialty: '만성 질환 & 대사증후군 & 성인 만성질환 통합 관리',
+                avatarSvg: `<svg class="doctor-avatar-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#e6f2f2"/><circle cx="50" cy="40" r="18" fill="#6e8e75"/><path d="M20 80 C 20 60, 80 60, 80 80 Z" fill="#0f5c5c"/><circle cx="50" cy="65" r="5" fill="#ffffff" /></svg>`,
+                education: [
+                    '한양대학교 의과대학 졸업',
+                    '한양대학교병원 내분비내과 전임의',
+                    '대한고혈압학회 정회원',
+                    '한국지질동맥경화학회 정회원'
+                ],
+                experience: [
+                    '당뇨를 동반한 만성 고혈압/고지혈증 융합 예방 관리 프로그램',
+                    '지방간 및 대사 이상 관련 지방간질환(MAFLD) 특화 검진',
+                    '혈관 나이 진단 및 동맥경화 스크리닝 분석 예방 클리닉',
+                    '원스톱 생활습관 및 맞춤 영양 설계 솔루션 운영'
+                ]
+            }
+        ];
+
+        const modal = document.getElementById('doctorModal');
+        const modalAvatar = document.getElementById('modalAvatar');
+        const modalTag = document.getElementById('modalTag');
+        const modalName = document.getElementById('modalName');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSpecialty = document.getElementById('modalSpecialty');
+        const modalEducation = document.getElementById('modalEducation');
+        const modalExperience = document.getElementById('modalExperience');
+
+        function openDoctorModal(index) {
+            const doc = doctorsData[index];
+            if (!doc) return;
+
+            modalAvatar.innerHTML = doc.avatarSvg;
+            modalTag.innerText = doc.tag;
+            modalName.innerText = doc.name;
+            modalTitle.innerText = doc.title;
+            modalSpecialty.innerText = doc.specialty;
+
+            // Populate Education
+            modalEducation.innerHTML = '';
+            doc.education.forEach(edu => {
+                const li = document.createElement('li');
+                li.innerText = edu;
+                modalEducation.appendChild(li);
+            });
+
+            // Populate Experience
+            modalExperience.innerHTML = '';
+            doc.experience.forEach(exp => {
+                const li = document.createElement('li');
+                li.innerText = exp;
+                modalExperience.appendChild(li);
+            });
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeDoctorModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+
+        function closeDoctorModalOutside(event) {
+            if (event.target === modal) {
+                closeDoctorModal();
+            }
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeDoctorModal();
+            }
+        });
+
+        // 3. FAQ Accordion Handler
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const faqAnswer = faqItem.querySelector('.faq-answer');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all first
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').style.maxHeight = null;
+            });
+
+            if (!isActive) {
+                faqItem.classList.add('active');
+                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+            }
+        }
+
+        // 4. Form Submission and Toast Notifications
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Simple fields query
+            const name = document.getElementById('bookingName').value;
+            const phone = document.getElementById('bookingPhone').value;
+            const doctor = document.getElementById('bookingDoctor').value;
+            const date = document.getElementById('bookingDate').value;
+
+            // Generate clean toast notification
+            showToast(`<i class="fa-regular fa-circle-check"></i> ${name}님, ${doctor} 진료 예약 신청이 전송되었습니다! 담당자가 신속히 확인전화를 드리겠습니다.`);
+            
+            // Reset form
+            document.getElementById('bookingForm').reset();
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = message;
+
+            container.appendChild(toast);
+
+            // Trigger animation
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+
+            // Remove toast after 4.5 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 400);
+            }, 4500);
+        }
+
+        // Set default minimum date to today for booking
+        window.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('bookingDate');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        });
+    </script>
+</body>
+</html>
