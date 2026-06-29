@@ -718,7 +718,7 @@
     </div>
 
     <!-- Javascript Logic -->
-    <script>
+    <script type="module">
         // Load API key from local storage on load
         document.addEventListener('DOMContentLoaded', () => {
             const savedKey = localStorage.getItem('medi_scope_api_key');
@@ -767,7 +767,8 @@
         }
 
         async function performDiagnosis() {
-            const apiKey = localStorage.getItem('medi_scope_api_key') || document.getElementById('apiKeyInput').value.trim();
+            const viteApiKey = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env.VITE_GEMINI_API_KEY : '';
+            const apiKey = viteApiKey || localStorage.getItem('medi_scope_api_key') || document.getElementById('apiKeyInput').value.trim();
             const symptoms = document.getElementById('symptomInput').value.trim();
 
             if (!apiKey) {
